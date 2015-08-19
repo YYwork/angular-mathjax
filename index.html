@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>angular mathjax</title>
+  <script src="http://cdn.bootcss.com/angular.js/1.4.4/angular.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ "HTML-CSS": { linebreaks: { automatic: true }, undefinedFamily: "'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', STXihei, SimHei, sans-serif", }, tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] }, TeX: { Macros: { 'varparalleleq': '\\stackrel{//}{=}', 'overparen': '\\overset{\\frown}', 'parallelogram': '\\text{平行四边形}', } }, }); MathJax.Hub.Configured();
+  </script>
+  <script src="http://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</head>
+
+<body>
+  <div ng-app="mathj" ng-controller="mathjaxController">
+    <div class="input" style="float: left;width: 300px; height: 100px;">
+      <textarea class="mathjax-textarea" ng-model="math" style="width: 290px; height: 100px;"></textarea>
+    </div>
+    <div class="view" style="float: left;width: 300px; height: 100px; border: 1px dotted #555; padding: 5px;">
+      <div class="mathjax-preview" mathjax-dynamic="math">
+      </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+  <script src="./controller.js"></script>
+  <script src="./directive.js"></script>
+  <script src="./filter.js"></script>
+</body>
+
+</html>

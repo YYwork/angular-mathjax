@@ -9,6 +9,16 @@
     MathJax.Hub.Config({ "HTML-CSS": { linebreaks: { automatic: true }, undefinedFamily: "'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', STXihei, SimHei, sans-serif", }, tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] }, TeX: { Macros: { 'varparalleleq': '\\stackrel{//}{=}', 'overparen': '\\overset{\\frown}', 'parallelogram': '\\text{平行四边形}', } }, }); MathJax.Hub.Configured();
   </script>
   <script src="http://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML-full"></script>
+  <style type="text/css">
+  .latex-inline {
+    display: inline-block;
+  }
+  
+  .latex-line {
+    display: block;
+    text-align: center;
+  }
+  </style>
 </head>
 
 <body>
@@ -17,7 +27,7 @@
       <textarea class="mathjax-textarea" ng-model="math" style="width: 290px; height: 100px;"></textarea>
     </div>
     <div class="view" style="float: left;width: 300px; height: 100px; border: 1px dotted #555; padding: 5px;">
-      <div class="mathjax-preview" mathjax-dynamic="math">
+      <div class="mathjax-preview" mathjax-dynamic="math | mathjaxFilter">
       </div>
     </div>
   </div>

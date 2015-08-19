@@ -28,8 +28,13 @@ function mathjaxDynamic($compile) {
     link: function(scope, ele, attrs) {
       scope.$watch(attrs.mathjaxDynamic, function(html) {
         if (html) {
-          html = html.replace(/\n/g, '<br />');
+          html = html.toString()
+            .replace(/^[^\/]+\/\*!?/, '')
+            .replace(/\*\/[^\/]+$/, '')
+            .replace(/\n/g, '<br />');
+          html = html.replace(/\$\$([^$]+)\$\$/g, "<div mathjax-bind=\"$1\"></div>");
           html = html.replace(/\$([^$]+)\$/g, '<span mathjax-bind=\"$1\"></span>');
+          html = html.replace(/\\\(([^$]+)\\\)/g, '<span mathjax-bind=\"$1\"></span>');
         } else {
           html = '<span></span>'
         }

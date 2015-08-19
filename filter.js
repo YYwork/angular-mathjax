@@ -18,6 +18,7 @@ function mathjaxFilter() {
       input = input.replace(/<bracket\s*\/>/g, "<span class=\"placeholder bracket\" data-index=\"\">(&nbsp;)</span>");
 
       // latex 解析
+      // 多标签嵌套 解析为一个标签 \(\)
       input = input.replace(/<latex[\w\"\'\s]*><\/\s*latex\s*>/g, "");
       input = input.replace(/<latex\s*inline\s*>/g, "<div class=\"latex-inline\">\$").replace(/<latex\s*>/g, "<div class=\"latex-line\">\$").replace(/<\/latex\s*>/g, "\$</div>");
 
